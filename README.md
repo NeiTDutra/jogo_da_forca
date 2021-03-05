@@ -1,4 +1,4 @@
-# : Jogo da forca :
+#:Jogo da forca:
 
 ## Um simples jogo em html, css e javascript
 
