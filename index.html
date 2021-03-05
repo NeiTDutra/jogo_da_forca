@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Jogo da forca</title>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="jogoForca.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-sm-12 topo pb-3 text-center text-white">
+                    <h1>Jogo da forca</h1>
+                    <div class="input_palavra" id="palavra">
+                        <p>Digite a palavra do jogo</p>
+                        <input type="text" name="palavra" id="in_word" required autofocus/>
+                        <button class="btn btn-primary" type="button" onclick="criaCaixaDeLetra();" onMouseUp="this.blur();">Iniciar jogo</button>
+                    </div>
+                    <div class="input_letra" id="letra">
+                        <p>Digite uma letra</p>
+                        <input type="text" name="letra" id="in_letter" required autofocus/>
+                        <button class="btn btn-primary" type="button" onclick="testaLetra();" onMouseUp="this.blur();">Jogar</button>
+                    </div>
+                </div>
+                <div class="col col-sm-5 forca pt-3 text-center">
+                    <h2 class="p-2 text-danger">Forca</h2>
+                    <div id="forca1" class="boneco"></div>
+                    <div id="forca2" class="boneco"></div>
+                    <div id="forca3" class="boneco"></div>
+                    <div id="forca4" class="boneco"></div>
+                    <div id="forca5" class="boneco"></div>
+                    <div id="forca6" class="boneco text-white">
+                        <p class="ml-1 mb-0">OO</p>
+                        <p class="mt-0">--</p>
+                    </div>
+                    <div id="forca7" class="boneco"></div>
+                </div>
+                <div class="col col-sm-7 tabuleiro pt-3" id="div_word">
+                    <h2 class="mb-5 ml-5">Acerte as letras</h2>
+                </div>
+                <div class="col col-sm-12 l_digitada text-center mt-3">
+                    <h3>Letras que já foram digitadas:</h3>
+                    <div id="l_digitada" class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <style>
+        body {
+            background-color: black;
+        }
+        @keyframes warn {
+            from {
+                background-color: red;
+                box-shadow: 10px 12px 12px 10px yellow;
+            }
+            to {
+                background-color: black;
+            }
+        }
+        .animate {
+            animation-delay: 0.5s;
+            animation-name: warn;
+            animation-duration: 1S;
+            animation-iteration-count: infinite;
+        }
+        .topo {
+            min-height: 20vh;
+        }
+        .forca {
+            height: 60vh;
+            background-image: url(./arvore.png);
+        }
+        .tabuleiro {
+            height: 40vh;
+            background-color: green;
+        }
+        .letter {
+            position: relative;
+            float: left;
+            margin-left: 2%;
+            width: 5%;
+            height: 5vh;
+            background-color: white;
+        }
+        .input_letra {
+            display: none;
+        }
+        .l_digitada {
+            Background-color: white;
+            height: 20vh;
+        }
+        #in_word {
+            padding: 10px;
+        }
+        #in_letter {
+            padding: 10px;
+            width: 70px;
+        }
+        #l_digitada {
+            width: 80%;
+        }
+        .boneco {
+            position: absolute;
+            background-color: black;
+            z-index: 10;
+        }
+        #forca1 {
+            width: 15px;
+            height: 60px;
+            margin-top: 250px;
+            margin-left: 250px;
+            display: none;
+        }
+        #forca2 {
+            width: 15px;
+            height: 60px;
+            margin-top: 250px;
+            margin-left: 275px;
+            display: none;
+        }
+        #forca3 {
+            width: 15px;
+            height: 50px;
+            margin-top: 200px;
+            margin-left: 260px;
+            display: none;
+        }
+        #forca4 {
+            width: 50px;
+            height: 15px;
+            margin-top: 200px;
+            margin-left: 275px;
+            display: none;
+        }
+        #forca5 {
+            width: 50px;
+            height: 15px;
+            margin-top: 200px;
+            margin-left: 215px;
+            display: none;
+        }
+        #forca6 {
+            width: 50px;
+            height: 50px;
+            margin-top: 150px;
+            margin-left: 255px;
+            border-radius: 70% 50% 70% 50%;
+            display: none; 
+        }
+        #forca7 {
+            width: 15px;
+            height: 110px;
+            margin-top: 50px;
+            margin-left: 260px;
+            display: none;
+        }
+    </style>
+</html>
+
