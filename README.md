@@ -1,8 +1,8 @@
-# :Jogo da forca:
+# : Jogo da forca :
 
 ## Um simples jogo em html, css e javascript
 
-Insere uma palavra e tem até sete chanches para acertar antes que o boneco fique preso na forca.
+Insere uma palavra e tem até sete chances para acertar antes que o boneco fique preso na forca.
 
 (em desenvolvimento)
 
