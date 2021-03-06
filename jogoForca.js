@@ -83,7 +83,7 @@ function testaLetra() {
                 setTimeout( () => {
                 
                     document.getElementById('game_over').style.display = 'block';
-                }, 2000);
+                }, 500);
                 setTimeout( function() {
                 
                     alert('Acabou o jogo, o boneco está na forca!!!');
@@ -93,7 +93,7 @@ function testaLetra() {
                     winn = 0;
                     l_digitada = '';
                     window.location.reload(true);
-                }, 7000);
+                }, 4000);
 
             }
         }
