@@ -1,4 +1,8 @@
-// Jogo da força
+/*
+/ Jogo da força
+/ file: jogoForca.js
+/ 
+*/
 
 var palavra = '';
 var letra = '';
@@ -76,13 +80,21 @@ function testaLetra() {
             document.getElementById('forca'+count).style.display = 'block';
             document.getElementById('forca'+count).classList.toggle('animate');
             if(count == 7) {
-                alert('Acabou o jogo, o boneco está na forca!!!');
-                palavra = '';
-                letra = '';
-                count = 0;
-                winn = 0;
-                l_digitada = '';
-                window.location.reload(true);
+                setTimeout( () => {
+                
+                    document.getElementById('game_over').style.display = 'block';
+                }, 2000);
+                setTimeout( function() {
+                
+                    alert('Acabou o jogo, o boneco está na forca!!!');
+                    palavra = '';
+                    letra = '';
+                    count = 0;
+                    winn = 0;
+                    l_digitada = '';
+                    window.location.reload(true);
+                }, 7000);
+
             }
         }
         letra = '';
