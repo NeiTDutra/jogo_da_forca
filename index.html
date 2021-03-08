@@ -22,7 +22,6 @@
     <body>
         <div class="container-fluid">
             <div id="game_over" class="text-center">
-                <h1 class="text-danger">GAME OVER</h1>
             </div>
             <div class="row">
                 <div class="col col-sm-12 topo pb-3 text-center text-white">
@@ -54,7 +53,7 @@
                     </div>
                 </div>
                 <div class="col col-sm-5 forca pt-3 text-center">
-                    <h2 class="p-2 text-danger">Forca</h2>
+                    <h2 class="p-2 text-danger slide">Forca</h2>
                     <div id="forca1" class="boneco"></div>
                     <div id="forca2" class="boneco"></div>
                     <div id="forca3" class="boneco"></div>
@@ -73,9 +72,9 @@
                         <h3 class="ml-3 text-danger">Dicas</h3>
                     </div>
                 </div>
-                <div class="col col-sm-12 l_digitada text-center mt-3">
+                <div class="col col-sm-12 l_digitada justify-content-center align-items-center text-center mt-3">
                     <h3>Letras que já foram digitadas:</h3>
-                    <div id="l_digitada" class="text-center">
+                    <div id="l_digitada" class="text-center justify-content-center align-items-center ">
                     </div>
                 </div>
             </div>
@@ -117,12 +116,7 @@
         .topo {
             min-height: 20vh;
         }
-        .forca {
-            height: 60vh;
-            background-image: url(./arvore.png);
-            background-color: none;
-        }
-        .tabuleiro {
+        .forca, .tabuleiro {
             height: 60vh;
             background-image: url(./arvore.png);
         }
@@ -131,17 +125,25 @@
         }
         @keyframes sld {
             0% {
-                margin-left: 100%;
+                margin-left: 150%;
+                opacity: 0;
             }
             100% {
                 margin-left: 2%;
+                opacity: 1;
             }
         }
         .slide {
-            animation-delay: 2s;
             animation-name: sld;
             animation-duration: 5s;
             animation-iteration-count: 1;
+            text-shadow: 2px 1px yellow;
+        }
+        .inidica {
+            animation-name: sld;
+            animation-duration: 5s;
+            animation-iteration-count: 1;
+            margin-left: 2%;
         }
         .letter {
             position: relative;
@@ -175,6 +177,7 @@
         }
         .l_digitada {
             height: 20vh;
+            width: 99%;
         }
         #dica_i, #dica_ii, #dica_iii {
             padding: 8px;
@@ -186,10 +189,12 @@
         }
         #dica {
             position: relative;
+            max-height: 50%;
+            overflow: hidden;
             width: 100%;
             background-color: gray;
             margin-top: 8%;
-            padding: 20px 0 20px 0;
+            padding: 20px 0 20px 20px;
             font-weight: 900;
             font-size: 1.3rem;
             display: none;
@@ -202,7 +207,7 @@
             width: 70px;
         }
         #l_digitada {
-            width: 80%;
+            width: 100%;
         }
         .boneco {
             position: absolute;
