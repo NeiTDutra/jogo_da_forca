@@ -22,6 +22,6 @@ No sétimo erro o boneco é enforcado.
 
 (em desenvolvimento)
 
-*Desenvolvendo opção de colocar três dicas para a resposta, na segunda, quarta e sexta resposta errada*
+*Projetando a refatoração do código com algun(s) framework(s)...*
 
 
