@@ -1,8 +1,17 @@
 <!DOCTYPE html>
+<!--
+/ Jogo da força
+/ file: ./index.html
+/ description: arquivo que contém todo html do jogo, incluindo o css
+/ date: março/2021
+/ author: Nei Thomassin Dutra
+/ git: https://gitlab.com/neithomass/hangman_game
+-->
 <html lang="pt-br">
     <head>
         <title>Jogo da forca</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="cache-control" content="no-cache" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -19,12 +28,27 @@
                 <div class="col col-sm-12 topo pb-3 text-center text-white">
                     <h1>Jogo da forca</h1>
                     <div class="input_palavra" id="palavra">
-                        <p>Digite a palavra do jogo</p>
+                        <p class="seta">Digite a palavra do jogo</p>
                         <input type="text" name="palavra" id="in_word" required autofocus/>
                         <button class="btn btn-primary" type="button" onclick="criaCaixaDeLetra();" onMouseUp="this.blur();">Iniciar jogo</button>
                     </div>
+                    <div id="input_dica_i">
+                        <p class="seta">Digite uma dica (1/3)</p>
+                        <input type="text" name="dica_i" id="dica_i" required autofocus/>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_i');" onMouseUp="this.blur();">Póxima</button>
+                    </div>
+                    <div id="input_dica_ii">
+                        <p class="seta">Digite uma dica (2/3)</p>
+                        <input type="text" name="dica_ii" id="dica_ii" required autofocus/>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_ii');" onMouseUp="this.blur();">Póxima</button>
+                    </div>
+                    <div id="input_dica_iii">
+                        <p class="seta">Digite uma dica (3/3)</p>
+                        <input type="text" name="dica_iii" id="dica_iii" required autofocus/>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_iii');" onMouseUp="this.blur();">Póxima</button>
+                    </div>
                     <div class="input_letra" id="letra">
-                        <p>Digite uma letra</p>
+                        <p class="seta">Digite uma letra</p>
                         <input type="text" name="letra" id="in_letter" required autofocus/>
                         <button class="btn btn-primary" type="button" onclick="testaLetra();" onMouseUp="this.blur();">Jogar</button>
                     </div>
@@ -42,8 +66,12 @@
                     </div>
                     <div id="forca7" class="boneco"></div>
                 </div>
-                <div class="col col-sm-7 tabuleiro pt-3" id="div_word">
-                    <h2 class="mb-5 ml-5">Acerte as letras</h2>
+                <div class="col col-sm-7 tabuleiro pt-3">
+                    <h2 class="p-2 text-danger slide">Acerte as letras</h2>
+                    <div id="div_word"></div>
+                    <div id="dica" class="">
+                        <h3 class="ml-3 text-danger">Dicas</h3>
+                    </div>
                 </div>
                 <div class="col col-sm-12 l_digitada text-center mt-3">
                     <h3>Letras que já foram digitadas:</h3>
@@ -55,19 +83,21 @@
     </body>
     <style>
         body {
-            background-color: black;
+            background-image: linear-gradient(black, white);
         }
         #game_over {
             display: none;
             position: fixed;
+            margin: 0;
+            padding: 0;
             width: 100%;
             height: 100vh;
             z-index: 100;
-            background-color: black;
-            opacity: 0.8;
+            background-image: url(./fundoTransparente.png);
         }
         #game_over h1 {
             margin-top: 20%;
+            background: black;
         }
         @keyframes warn {
             from {
@@ -81,7 +111,7 @@
         .animate {
             animation-delay: 0.5s;
             animation-name: warn;
-            animation-duration: 1S;
+            animation-duration: 1s;
             animation-iteration-count: infinite;
         }
         .topo {
@@ -90,10 +120,28 @@
         .forca {
             height: 60vh;
             background-image: url(./arvore.png);
+            background-color: none;
         }
         .tabuleiro {
-            height: 40vh;
-            background-color: green;
+            height: 60vh;
+            background-image: url(./arvore.png);
+        }
+        .tabuleiro h2 {
+            margin-left: 2%;
+        }
+        @keyframes sld {
+            0% {
+                margin-left: 100%;
+            }
+            100% {
+                margin-left: 2%;
+            }
+        }
+        .slide {
+            animation-delay: 2s;
+            animation-name: sld;
+            animation-duration: 5s;
+            animation-iteration-count: 1;
         }
         .letter {
             position: relative;
@@ -106,9 +154,45 @@
         .input_letra {
             display: none;
         }
+        #input_dica_i, #input_dica_ii, #input_dica_iii {
+            display: none;
+        }
+        @keyframes atencao {
+            from {
+                font-size: 1.5rem;
+                color: red;
+            }
+            to {
+                margin-right: 0;
+                font-size: 1.5rem;
+                color: orange;
+            }
+        }
+        .seta {
+            animation-name: atencao;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
         .l_digitada {
-            Background-color: white;
             height: 20vh;
+        }
+        #dica_i, #dica_ii, #dica_iii {
+            padding: 8px;
+            width: 450px;
+        }
+        #div_word {
+            position: relative;
+            width: 100%;
+        }
+        #dica {
+            position: relative;
+            width: 100%;
+            background-color: gray;
+            margin-top: 8%;
+            padding: 20px 0 20px 0;
+            font-weight: 900;
+            font-size: 1.3rem;
+            display: none;
         }
         #in_word {
             padding: 8px;
