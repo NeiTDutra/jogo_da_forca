@@ -29,22 +29,23 @@
                     <div class="input_palavra" id="palavra">
                         <p class="seta">Digite a palavra do jogo</p>
                         <input type="text" name="palavra" id="in_word" required autofocus/>
-                        <button class="btn btn-primary" type="button" onclick="criaCaixaDeLetra();" onMouseUp="this.blur();">Iniciar jogo</button>
+                        <button class="btn btn-primary" type="button" onclick="criaCaixaDeLetra('yes');" onMouseUp="this.blur();">Próximo</button>
+                        <button class="btn btn-primary" type="button" onclick="random();" onMouseUp="this.blur();">Deixe o sistema escolher</button>
                     </div>
                     <div id="input_dica_i">
                         <p class="seta">Digite uma dica (1/3)</p>
                         <input type="text" name="dica_i" id="dica_i" required autofocus/>
-                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_i');" onMouseUp="this.blur();">Póxima</button>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_i');" onMouseUp="this.blur();">Próximo</button>
                     </div>
                     <div id="input_dica_ii">
                         <p class="seta">Digite uma dica (2/3)</p>
                         <input type="text" name="dica_ii" id="dica_ii" required autofocus/>
-                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_ii');" onMouseUp="this.blur();">Póxima</button>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_ii');" onMouseUp="this.blur();">Próximo</button>
                     </div>
                     <div id="input_dica_iii">
                         <p class="seta">Digite uma dica (3/3)</p>
                         <input type="text" name="dica_iii" id="dica_iii" required autofocus/>
-                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_iii');" onMouseUp="this.blur();">Póxima</button>
+                        <button class="btn btn-primary" type="button" onclick="guardaDica('dica_iii');" onMouseUp="this.blur();">Próximo</button>
                     </div>
                     <div class="input_letra" id="letra">
                         <p class="seta">Digite uma letra</p>
@@ -220,6 +221,7 @@
             margin-top: 250px;
             margin-left: 250px;
             display: none;
+            border-radius: 50% 0 35% 35%;
         }
         #forca2 {
             width: 15px;
@@ -227,6 +229,7 @@
             margin-top: 250px;
             margin-left: 275px;
             display: none;
+            border-radius: 0 50% 35% 35%;
         }
         #forca3 {
             width: 15px;
@@ -241,6 +244,7 @@
             margin-top: 200px;
             margin-left: 275px;
             display: none;
+            border-radius: 35% 50% 35% 0;
         }
         #forca5 {
             width: 50px;
@@ -248,6 +252,7 @@
             margin-top: 200px;
             margin-left: 215px;
             display: none;
+            border-radius: 35% 50% 0 35%;
         }
         #forca6 {
             width: 50px;
@@ -263,6 +268,7 @@
             margin-top: 50px;
             margin-left: 260px;
             display: none;
+            border-radius: 0 0 35% 35%;
         }
     </style>
 </html>

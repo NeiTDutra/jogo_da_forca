@@ -1,0 +1,53 @@
+
+{
+    "data": [
+    {
+        "palavra": "lagartixa",
+        "dica": {
+            "dica_i": "É um animal réptil",
+            "dica_ii": "Come insetos",
+            "dica_iii": "Comum em casas"
+        }
+    },
+    {
+        "palavra": "lápis",
+        "dica": {
+            "dica_i": "É usado para escrever",
+            "dica_ii": "Feito de carbono",
+            "dica_iii": "Comum em casa ou trabalho"
+        }
+    },
+    {
+        "palavra": "trem",
+        "dica": {
+            "dica_i": "É um meio de transporte",
+            "dica_ii": "Mais comum para transporte de carga",
+            "dica_iii": "Pode ser muito comprido"
+        }
+    },
+    {
+        "palavra": "Montanha",
+        "dica": {
+            "dica_i": "É um lugar alto",
+            "dica_ii": "No geral não é plano",
+            "dica_iii": "Pode ter cachoeira"
+        }
+    },
+    {
+        "palavra": "jacaré",
+        "dica": {
+            "dica_i": "Se encontra em pântanos",
+            "dica_ii": "É um animal réptil",
+            "dica_iii": "É um predador"
+        }
+    },
+    {
+        "palavra": "oceano",
+        "dica": {
+            "dica_i": "Tem muita água",
+            "dica_ii": "Tem muito gelo",
+            "dica_iii": "É salagado"
+        }
+    }
+]}
+
