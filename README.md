@@ -1,4 +1,4 @@
-# :Jogo da forca:
+# Jogo da forca
 
 ## Um simples jogo em html, css e javascript
 
@@ -7,6 +7,8 @@ Insere uma palavra e tem até sete chances para acertar antes que o boneco fique
 ### Escopo
 
 Digite uma palavra, em seguida, digite trễs dicas relacionadas à palavra secreta.
+
+(Novo) Opção para deixar o sistema escolher a palavra e as dicas.
 
 Uma nova caixa de texto para digitar a letra.
 
