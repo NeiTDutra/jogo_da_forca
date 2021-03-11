@@ -23,6 +23,7 @@ function random() {
     
     document.getElementById('palavra').style.display = 'none';
     document.getElementById('letra').style.display = 'block';
+    document.getElementById('letra').focus();
     var requestUrl = './palavraoculta.json';
     var request = new XMLHttpRequest();
     request.open('POST', requestUrl);
@@ -66,7 +67,7 @@ function criaCaixaDeLetra(p) {
     
         if(palavra == '') {
         
-            alert('Digite uma palavra!');
+            alert('Digite uma palavra ou deixe o sistema escolher!');
             window.location.reload(true);
             palavra = '';
             letra = '';
