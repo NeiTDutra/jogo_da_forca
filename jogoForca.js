@@ -35,7 +35,7 @@ function random() {
     request.open('POST', requestUrl, true);
     request.responseType = 'json';
     request.send(null);
-    request.onload = () => {
+    request.onload = async () => {
         if(request.readyState === 4) {
         
             var res = request.response;
@@ -43,9 +43,9 @@ function random() {
         
         }
         // passa o array para a função que escolhe palavra e dicas
-        saveOnVar(d);
+        await saveOnVar(d);
         // passa a palavra escolhida para a função que cria as caixas do jogo no html
-        criaCaixaDeLetra(plvr);
+        await criaCaixaDeLetra(plvr);
     }
     // função que faz a escolha aleatoria e guarda os valores nas variáveis
     function saveOnVar(data) {
