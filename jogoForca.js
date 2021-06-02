@@ -32,13 +32,16 @@ function random() {
     document.getElementById('letra').focus();
     var requestUrl = './palavraoculta.json';
     var request = new XMLHttpRequest();
-    request.open('POST', requestUrl);
+    request.open('POST', requestUrl, true);
     request.responseType = 'json';
-    request.send();
+    request.send(null);
     request.onload = () => {
-    
-        var res = request.response;
-        var d = res.data;
+        if(request.readyState === 4) {
+        
+            var res = request.response;
+            var d = res.data;
+        
+        }
         // passa o array para a função que escolhe palavra e dicas
         saveOnVar(d);
         // passa a palavra escolhida para a função que cria as caixas do jogo no html
