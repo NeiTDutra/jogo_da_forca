@@ -30,8 +30,10 @@ function random() {
     document.getElementById('palavra').style.display = 'none';
     document.getElementById('letra').style.display = 'block';
     document.getElementById('letra').focus();
+    
     var requestUrl = './palavraoculta.json';
     var request = new XMLHttpRequest();
+    
     request.open('POST', requestUrl, true);
     request.responseType = 'json';
     request.send(null);
@@ -40,7 +42,6 @@ function random() {
         
             var res = request.response;
             var d = res.data;
-        
         }
         // passa o array para a função que escolhe palavra e dicas
         saveOnVar(d);
@@ -96,6 +97,7 @@ function criaCaixaDeLetra(p) {
             alert('Digite uma palavra ou deixe o sistema escolher!');
             document.getElementById('in_word').value = '';
             document.getElementById('in_word').focus();
+            
             return;
         }
         

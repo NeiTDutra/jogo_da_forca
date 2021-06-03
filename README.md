@@ -4,6 +4,10 @@
 
 Insere uma palavra e tem até sete chances para acertar antes que o boneco fique preso na forca.
 
+### Teste de uso
+
+Teste o [jogo da forca neste link](https://neitdutra.github.io/jogo_da_forca/)
+
 ### Escopo
 
 Digite uma palavra, em seguida, digite trễs dicas relacionadas à palavra secreta.
