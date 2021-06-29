@@ -2,6 +2,14 @@
 {
     "data": [
     {
+        "palavra": "navio",
+        "dica": {
+            "dica_i": "Pode transportar bastante carga",
+            "dica_ii": "Carga sólida ou líquida",
+            "dica_iii": "Flutua na água"
+        }
+    },
+    {
         "palavra": "lagartixa",
         "dica": {
             "dica_i": "É um animal réptil",
