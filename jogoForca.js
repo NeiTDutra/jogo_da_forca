@@ -32,7 +32,7 @@ function random() {
     document.getElementById('letra').style.display = 'block';
     document.getElementById('letra').focus();
 
-    var requestUrl = './palavraoculta.json';
+    var requestUrl = proccess.env.JSON_DATA;
     var request = new XMLHttpRequest();
 
     request.open('POST', requestUrl, true);
@@ -275,9 +275,11 @@ function testaLetra() {
 
 // função que isola a palavra do jogo para não
 // ser usada novamente caso o jogador queira
-// continuar jogando *em desenvolvimento
+// continuar jogando *em desenvolvimento...
 
 function jogarNovamente() {
+
+    document.getElementById('game_over').style.display = 'none';
     plv_anterior += palavra;
     palavra = '';
     letra = '';
@@ -287,7 +289,7 @@ function jogarNovamente() {
     l_digitada = [];
     plvr = '';
     dica_i = '';
-    ica_ii = '';
+    dica_ii = '';
     dica_iii = '';
     testNumRand = [];
     requestUrl = '';
@@ -297,7 +299,6 @@ function jogarNovamente() {
     range = '';
     numRand = '';
     //window.location.reload(true);
-    document.getElementById('game_over').style.display = 'none';
     random();
 }
 
