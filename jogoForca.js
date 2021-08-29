@@ -32,7 +32,7 @@ function random() {
     document.getElementById('letra').style.display = 'block';
     document.getElementById('letra').focus();
 
-    var requestUrl = proccess.env.JSON_DATA;
+    var requestUrl = process.env.JSON_DATA;
     var request = new XMLHttpRequest();
 
     request.open('POST', requestUrl, true);
