@@ -23,8 +23,7 @@ var dica_iii = '';
 var testNumRand = [];
 
 // chama a função que escolhe aleatoriamente palavra e dicas,
-// faz a busca em dados no formato json no arquivo "palavraoculta.json",
-// usando a classe "XMLHttpRequest"...
+// faz a busca em dados no formato json no arquivo "palavraoculta.json":
 
 function random() {
 
@@ -33,6 +32,9 @@ function random() {
     document.getElementById('letra').focus();
 
     var requestUrl = './palavraoculta.json';
+    // var requestUrlFetch = 'http://localhost/jogo%20da%20forca/palavraoculta.json';
+
+    // usando o método "XMLHttpRequest"...
     var request = new XMLHttpRequest();
 
     request.open('POST', requestUrl, true);
@@ -49,6 +51,24 @@ function random() {
         // passa a palavra escolhida para a função que cria as caixas do jogo no html
         criaCaixaDeLetra(plvr);
     }
+
+    // usando o método "fetch"...
+    /*fetch(requestUrlFetch, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: { key: 'value' }
+      }).then(response => {
+        // Do something with response
+        // passa o array para a função que escolhe palavra e dicas
+        var dd = response.body.data;
+        saveOnVar(dd);
+        // passa a palavra escolhida para a função que cria as caixas do jogo no html
+        criaCaixaDeLetra(plvr);
+      }).catch(error => {
+        // Handle error
+        alert("Algo deu errado na requisição!!");
+      });*/
+
     // função que faz a escolha aleatoria e guarda os valores nas variáveis
     function saveOnVar(data) {
 
