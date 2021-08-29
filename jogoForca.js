@@ -32,7 +32,7 @@ function random() {
     document.getElementById('letra').style.display = 'block';
     document.getElementById('letra').focus();
 
-    var requestUrl = 'https://silly-perlman-0c1181.netlify.app/palavraoculta.json';
+    var requestUrl = './palavraoculta.json';
     var request = new XMLHttpRequest();
 
     request.open('POST', requestUrl, true);
